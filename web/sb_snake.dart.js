@@ -8269,7 +8269,6 @@
       },
       Snake$0: function() {
         var t1, t2, box;
-        P.print("New");
         this.speed = 5;
         this.thickness = 50;
         this.segments = [];
