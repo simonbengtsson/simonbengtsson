@@ -35,10 +35,8 @@
   opacity:0.7;
 }
 
-@media(min-width: 800px) {
-    body, html {
-        overflow: hidden;
-    }
+body, html {
+    overflow: hidden;
 }
 
 #wrapper {
