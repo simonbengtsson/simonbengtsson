@@ -4,13 +4,13 @@ import 'dart:html';
 import 'dart:async';
 import 'dart:math';
 
-part 'backend/segment.dart';
-part 'common/util.dart';
-part 'backend/snake.dart';
-part 'backend/controller.dart';
-part 'common/elem_box.dart';
-part 'backend/apple.dart';
-part 'backend/others.dart';
+part 'snake/segment.dart';
+part 'snake/util.dart';
+part 'snake/snake.dart';
+part 'snake/controller.dart';
+part 'snake/elem_box.dart';
+part 'snake/apple.dart';
+part 'snake/others.dart';
 
 Rectangle canvasRect;
 
