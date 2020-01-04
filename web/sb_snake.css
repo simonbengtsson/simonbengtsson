@@ -41,12 +41,6 @@
     }
 }
 
-@media(max-width: 800px) {
-    #canvas, #score {
-        display: none;
-    }
-}
-
 #wrapper {
     z-index: 200;
 }
