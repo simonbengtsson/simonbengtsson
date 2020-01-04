@@ -32,18 +32,10 @@ void main() {
   KeyController keyc = new KeyController();
   window.onKeyDown.listen(keyc.keyListener);
 
-  document.addEventListener('swiped-left', (e) {
-    print('left');
-  });
-  document.addEventListener('swiped-right', (e) {
-    print('right');
-  });
-  document.addEventListener('swiped-up', (e) {
-    print('up');
-  });
-  document.addEventListener('swiped-down', (e) {
-    print('down');
-  });
+  document.addEventListener('swiped-left', (e) { keyc.goLeft(); });
+  document.addEventListener('swiped-right', (e) { keyc.goRight(); });
+  document.addEventListener('swiped-up', (e) {  keyc.goUp(); });
+  document.addEventListener('swiped-down', (e) { keyc.goDown(); });
 }
 
 void spawnApple() {
