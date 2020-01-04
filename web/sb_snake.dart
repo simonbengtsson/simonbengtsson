@@ -29,6 +29,7 @@ void main() {
   snake = new Snake();
   spawnApple();
   window.animationFrame.then(update);
+
   KeyController keyc = new KeyController();
   window.onKeyDown.listen(keyc.keyListener);
 
@@ -46,6 +47,10 @@ void spawnApple() {
   }
 }
 
+unfadeInfoBox() {
+  querySelector("#main").style.opacity = "95%";
+}
+
 void update(num delta) {
   // Move rect
   Rectangle moveRect = snake.calcMoveRect();
@@ -53,6 +58,7 @@ void update(num delta) {
   //Move snake
   if (isGameOver(moveRect)) {
     restart();
+    unfadeInfoBox();
   } else {
     snake.move();
   }

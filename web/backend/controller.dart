@@ -37,7 +37,12 @@ class KeyController {
     }
   }
 
+  fadeInfoBox() {
+    querySelector("#main").style.opacity = "50%";
+  }
+
   goDown() {
+    fadeInfoBox();
     //Last was left segment
     if (snake.segments.last is LeftSegment) {
       var pos = snake.segments.last.getNewLeftPos();
@@ -59,6 +64,7 @@ class KeyController {
   }
 
   goUp() {
+    fadeInfoBox();
     //Last was left segment
     if (snake.segments.last is RightSegment) {
       var pos = snake.segments.last.getNewLeftPos();
@@ -80,6 +86,7 @@ class KeyController {
   }
 
   goRight() {
+    fadeInfoBox();
     //Last was left segment
     if (snake.segments.last is UpSegment) {
       var pos = snake.segments.last.getNewRightPos();
@@ -101,6 +108,7 @@ class KeyController {
   }
 
   goLeft() {
+    fadeInfoBox();
     //Last was Up segment
     if (snake.segments.last is UpSegment) {
       var pos = snake.segments.last.getNewLeftPos();

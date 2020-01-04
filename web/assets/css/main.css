@@ -813,6 +813,7 @@
 		display: -webkit-flex;
 		display: -ms-flex;
 		display: flex;
+		transition: opacity .5s ease-in-out;
 		-moz-align-items: center;
 		-webkit-align-items: center;
 		-ms-align-items: center;
