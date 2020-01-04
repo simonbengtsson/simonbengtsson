@@ -31,6 +31,19 @@ void main() {
   window.animationFrame.then(update);
   KeyController keyc = new KeyController();
   window.onKeyDown.listen(keyc.keyListener);
+
+  document.addEventListener('swiped-left', (e) {
+    print('left');
+  });
+  document.addEventListener('swiped-right', (e) {
+    print('right');
+  });
+  document.addEventListener('swiped-up', (e) {
+    print('up');
+  });
+  document.addEventListener('swiped-down', (e) {
+    print('down');
+  });
 }
 
 void spawnApple() {
