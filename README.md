@@ -6,8 +6,7 @@ Home page for simonbengtsson.com and simonbengtsson.se
 
 ### Deploy
 - `webdev build`
-- `rsync -a  -e 'ssh -p 3333' --chown=www-data:www-data build/ simonb@flown.io:/var/www/simonbengtsson`
+- `rsync -a -e 'ssh -p 3333' --exclude="packages" build/ simonb@flown.io:/var/www/simonbengtsson --stats --progress`
 
 ### Note
-- For some reason the dart version of the snake app is buggy, but the js version works fine.
 - Might need to make images public, `chmod 777 -R images`
