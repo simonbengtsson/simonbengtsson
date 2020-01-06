@@ -23,8 +23,11 @@ abstract class Segment {
   Rectangle getMoveRect(int speed);
   
   bool intersects(Rectangle other) {
-    var rect = new Rectangle(_box.x, _box.y, _box.width, _box.height);
-    return other.intersects(rect);
+    // Decrease size of rectangles before checking for intersects
+    // as a hack for fixing random game overs when turning quickly sometimes
+    var tmp = new Rectangle(other.left + 1, other.top - 1, other.width - 1, other.height - 1);
+    var rect = new Rectangle(_box.x + 1, _box.y - 1, _box.width - 1, _box.height - 1);
+    return tmp.intersects(rect);
   }
   
   void remove() {
