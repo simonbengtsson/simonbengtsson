@@ -43,88 +43,80 @@ class KeyController {
 
   goDown() {
     fadeInfoBox();
-    //Last was left segment
     if (snake.segments.last is LeftSegment) {
       var pos = snake.segments.last.getNewLeftPos();
       ElemBox box = new ElemBox(querySelector('#canvas'), pos.x, pos.y,
           Snake.DEFAULT_THICKNESS, Snake.DEFAULT_THICKNESS);
+      snake.segments.last._box.width -= Snake.DEFAULT_THICKNESS;
+      snake.segments.last._box.x += Snake.DEFAULT_THICKNESS;
       snake.segments.add(new DownSegment(box));
-    }
-    //Last was right segment
-    else if (snake.segments.last is RightSegment) {
+    } else if (snake.segments.last is RightSegment) {
       var pos = snake.segments.last.getNewRightPos();
       ElemBox box = new ElemBox(querySelector('#canvas'), pos.x, pos.y,
           Snake.DEFAULT_THICKNESS, Snake.DEFAULT_THICKNESS);
+      snake.segments.last._box.width -= Snake.DEFAULT_THICKNESS;
       snake.segments.add(new DownSegment(box));
-    }
-    //Last segment is not allowed
-    else {
+    } else {
       print('Not allowed direction');
     }
   }
 
   goUp() {
     fadeInfoBox();
-    //Last was left segment
     if (snake.segments.last is RightSegment) {
       var pos = snake.segments.last.getNewLeftPos();
       ElemBox box = new ElemBox(querySelector('#canvas'), pos.x, pos.y,
           Snake.DEFAULT_THICKNESS, Snake.DEFAULT_THICKNESS);
+      snake.segments.last._box.width -= Snake.DEFAULT_THICKNESS;
       snake.segments.add(new UpSegment(box));
-    }
-    //Last was right segment
-    else if (snake.segments.last is LeftSegment) {
+    } else if (snake.segments.last is LeftSegment) {
       var pos = snake.segments.last.getNewRightPos();
       ElemBox box = new ElemBox(querySelector('#canvas'), pos.x, pos.y,
           Snake.DEFAULT_THICKNESS, Snake.DEFAULT_THICKNESS);
+      snake.segments.last._box.width -= Snake.DEFAULT_THICKNESS;
+      snake.segments.last._box.x += Snake.DEFAULT_THICKNESS;
       snake.segments.add(new UpSegment(box));
-    }
-    //Not allowed
-    else {
+    } else {
       print('Not allowed direction');
     }
   }
 
   goRight() {
     fadeInfoBox();
-    //Last was left segment
     if (snake.segments.last is UpSegment) {
       var pos = snake.segments.last.getNewRightPos();
       ElemBox box = new ElemBox(querySelector('#canvas'), pos.x, pos.y,
           Snake.DEFAULT_THICKNESS, Snake.DEFAULT_THICKNESS);
+      snake.segments.last._box.height -= Snake.DEFAULT_THICKNESS;
+      snake.segments.last._box.y += Snake.DEFAULT_THICKNESS;
       snake.segments.add(new RightSegment(box));
-    }
-    //Last was right segment
-    else if (snake.segments.last is DownSegment) {
+    } else if (snake.segments.last is DownSegment) {
       var pos = snake.segments.last.getNewLeftPos();
       ElemBox box = new ElemBox(querySelector('#canvas'), pos.x, pos.y,
           Snake.DEFAULT_THICKNESS, Snake.DEFAULT_THICKNESS);
+      snake.segments.last._box.height -= Snake.DEFAULT_THICKNESS;
       snake.segments.add(new RightSegment(box));
-    }
-    //Not allowed
-    else {
+    } else {
       print('Not allowed direction');
     }
   }
 
   goLeft() {
     fadeInfoBox();
-    //Last was Up segment
     if (snake.segments.last is UpSegment) {
       var pos = snake.segments.last.getNewLeftPos();
       ElemBox box = new ElemBox(querySelector('#canvas'), pos.x, pos.y,
           Snake.DEFAULT_THICKNESS, Snake.DEFAULT_THICKNESS);
+      snake.segments.last._box.height -= Snake.DEFAULT_THICKNESS;
+      snake.segments.last._box.y += Snake.DEFAULT_THICKNESS;
       snake.segments.add(new LeftSegment(box));
-    }
-    //Last was Down segment
-    else if (snake.segments.last is DownSegment) {
+    } else if (snake.segments.last is DownSegment) {
       var pos = snake.segments.last.getNewRightPos();
       ElemBox box = new ElemBox(querySelector('#canvas'), pos.x, pos.y,
           Snake.DEFAULT_THICKNESS, Snake.DEFAULT_THICKNESS);
+      snake.segments.last._box.height -= Snake.DEFAULT_THICKNESS;
       snake.segments.add(new LeftSegment(box));
-    }
-    //Not allowed
-    else {
+    } else {
       print('Not allowed direction');
     }
   }
