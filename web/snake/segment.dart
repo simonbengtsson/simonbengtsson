@@ -23,8 +23,8 @@ abstract class Segment {
   Rectangle getMoveRect(int speed);
   
   bool intersects(Rectangle other) {
-    return (_box.x <= other.left + other.width && other.left <= _box.right &&
-        _box.y <= other.top + other.height && other.top <= _box.bottom);
+    var rect = new Rectangle(_box.x, _box.y, _box.width, _box.height);
+    return other.intersects(rect);
   }
   
   void remove() {
