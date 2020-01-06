@@ -32,7 +32,7 @@
   position:absolute;
   background:black;
   z-index: 100;
-  opacity:0.7;
+  opacity:0.5;
 }
 
 body, html {
@@ -41,8 +41,4 @@ body, html {
 
 #wrapper {
     z-index: 200;
-}
-
-#main {
-    opacity: 0.8;
 }

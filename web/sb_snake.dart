@@ -48,7 +48,7 @@ void spawnApple() {
 }
 
 unfadeInfoBox() {
-  querySelector("#main").style.opacity = "95%";
+  querySelector("#main").style.opacity = "0.95";
 }
 
 void update(num delta) {
