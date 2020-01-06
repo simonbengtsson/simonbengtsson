@@ -30,6 +30,7 @@ void main() {
   spawnApple();
   window.animationFrame.then(update);
 
+  updateScore(0);
   updateHighScore(0);
 
   KeyController keyc = new KeyController();
@@ -58,6 +59,7 @@ void update(num delta) {
 
   if (isGameOver(moveRect)) {
     updateHighScore(score);
+    updateScore(score);
     restart();
     unfadeInfoBox();
   } else {
@@ -86,7 +88,7 @@ void updateHighScore(score) {
   }
 
   window.localStorage["highscore"] = "$highScore";
-  querySelector("#highscore").text = "$highScore";
+  querySelector("#highscore").text = highScore > 0 ? "$highScore" : "";
 }
 
 void restart() {

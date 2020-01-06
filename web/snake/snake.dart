@@ -12,8 +12,6 @@ class Snake {
 
   Snake(){
     var isMobile = canvasRect.width < 768 ? 0.5 : 1;
-    print(isMobile);
-    print(canvasRect.width);
     speed = (DEFAULT_SPEED * isMobile).round();
     thickness = (DEFAULT_THICKNESS * isMobile).round();
     segments = new List();
