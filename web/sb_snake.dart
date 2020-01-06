@@ -61,18 +61,15 @@ void update(num delta) {
     unfadeInfoBox();
   } else {
     snake.move();
+    if (apple.rect.intersects(moveRect)) {
+      apple.remove();
+      spawnApple();
+      score += 100;
+      snake.growLength += Apple.DEFAULT_GROWTH;
+      scoreUpdated(score);
+    }
+    window.animationFrame.then(update);
   }
-
-  //Check for apples
-  if (apple.rect.intersects(moveRect)) {
-    apple.remove();
-    spawnApple();
-    score += 100;
-    snake.growLength += Apple.DEFAULT_GROWTH;
-    scoreUpdated(score);
-  }
-
-  window.animationFrame.then(update);
 }
 
 void restart() {
@@ -80,6 +77,7 @@ void restart() {
   snake = new Snake();
   apple = new Apple();
   score = 0;
+  window.animationFrame.then(update);
 }
 
 void scoreUpdated(num score) {
