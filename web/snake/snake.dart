@@ -11,12 +11,15 @@ class Snake {
   num growLength;
 
   Snake(){
-    speed = DEFAULT_SPEED;
-    thickness = DEFAULT_THICKNESS;
+    var isMobile = canvasRect.width < 768 ? 0.5 : 1;
+    print(isMobile);
+    print(canvasRect.width);
+    speed = (DEFAULT_SPEED * isMobile).round();
+    thickness = (DEFAULT_THICKNESS * isMobile).round();
     segments = new List();
     growLength = 400;
     var yMiddle = canvasRect.height/2 - thickness/2;
-    ElemBox box = new ElemBox(querySelector('#canvas'), 0, yMiddle.toInt(), FIRST_LENGTH, DEFAULT_THICKNESS);
+    ElemBox box = new ElemBox(querySelector('#canvas'), 0, yMiddle.toInt(), FIRST_LENGTH, thickness);
     segments.add(new RightSegment(box));
   }
 

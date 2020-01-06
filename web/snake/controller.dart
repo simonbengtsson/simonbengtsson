@@ -38,7 +38,7 @@ class KeyController {
   }
 
   fadeInfoBox() {
-    querySelector("#main").style.opacity = "50%";
+    querySelector("#main").style.opacity = "20%";
   }
 
   goDown() {
@@ -46,15 +46,15 @@ class KeyController {
     if (snake.segments.last is LeftSegment) {
       var pos = snake.segments.last.getNewLeftPos();
       ElemBox box = new ElemBox(querySelector('#canvas'), pos.x, pos.y,
-          Snake.DEFAULT_THICKNESS, Snake.DEFAULT_THICKNESS);
-      snake.segments.last._box.width -= Snake.DEFAULT_THICKNESS;
-      snake.segments.last._box.x += Snake.DEFAULT_THICKNESS;
+          snake.thickness, snake.thickness);
+      snake.segments.last._box.width -= snake.thickness;
+      snake.segments.last._box.x += snake.thickness;
       snake.segments.add(new DownSegment(box));
     } else if (snake.segments.last is RightSegment) {
       var pos = snake.segments.last.getNewRightPos();
       ElemBox box = new ElemBox(querySelector('#canvas'), pos.x, pos.y,
-          Snake.DEFAULT_THICKNESS, Snake.DEFAULT_THICKNESS);
-      snake.segments.last._box.width -= Snake.DEFAULT_THICKNESS;
+          snake.thickness, snake.thickness);
+      snake.segments.last._box.width -= snake.thickness;
       snake.segments.add(new DownSegment(box));
     } else {
       print('Not allowed direction');
@@ -66,15 +66,15 @@ class KeyController {
     if (snake.segments.last is RightSegment) {
       var pos = snake.segments.last.getNewLeftPos();
       ElemBox box = new ElemBox(querySelector('#canvas'), pos.x, pos.y,
-          Snake.DEFAULT_THICKNESS, Snake.DEFAULT_THICKNESS);
-      snake.segments.last._box.width -= Snake.DEFAULT_THICKNESS;
+          snake.thickness, snake.thickness);
+      snake.segments.last._box.width -= snake.thickness;
       snake.segments.add(new UpSegment(box));
     } else if (snake.segments.last is LeftSegment) {
       var pos = snake.segments.last.getNewRightPos();
       ElemBox box = new ElemBox(querySelector('#canvas'), pos.x, pos.y,
-          Snake.DEFAULT_THICKNESS, Snake.DEFAULT_THICKNESS);
-      snake.segments.last._box.width -= Snake.DEFAULT_THICKNESS;
-      snake.segments.last._box.x += Snake.DEFAULT_THICKNESS;
+          snake.thickness, snake.thickness);
+      snake.segments.last._box.width -= snake.thickness;
+      snake.segments.last._box.x += snake.thickness;
       snake.segments.add(new UpSegment(box));
     } else {
       print('Not allowed direction');
@@ -86,15 +86,15 @@ class KeyController {
     if (snake.segments.last is UpSegment) {
       var pos = snake.segments.last.getNewRightPos();
       ElemBox box = new ElemBox(querySelector('#canvas'), pos.x, pos.y,
-          Snake.DEFAULT_THICKNESS, Snake.DEFAULT_THICKNESS);
-      snake.segments.last._box.height -= Snake.DEFAULT_THICKNESS;
-      snake.segments.last._box.y += Snake.DEFAULT_THICKNESS;
+          snake.thickness, snake.thickness);
+      snake.segments.last._box.height -= snake.thickness;
+      snake.segments.last._box.y += snake.thickness;
       snake.segments.add(new RightSegment(box));
     } else if (snake.segments.last is DownSegment) {
       var pos = snake.segments.last.getNewLeftPos();
       ElemBox box = new ElemBox(querySelector('#canvas'), pos.x, pos.y,
-          Snake.DEFAULT_THICKNESS, Snake.DEFAULT_THICKNESS);
-      snake.segments.last._box.height -= Snake.DEFAULT_THICKNESS;
+          snake.thickness, snake.thickness);
+      snake.segments.last._box.height -= snake.thickness;
       snake.segments.add(new RightSegment(box));
     } else {
       print('Not allowed direction');
@@ -106,15 +106,15 @@ class KeyController {
     if (snake.segments.last is UpSegment) {
       var pos = snake.segments.last.getNewLeftPos();
       ElemBox box = new ElemBox(querySelector('#canvas'), pos.x, pos.y,
-          Snake.DEFAULT_THICKNESS, Snake.DEFAULT_THICKNESS);
-      snake.segments.last._box.height -= Snake.DEFAULT_THICKNESS;
-      snake.segments.last._box.y += Snake.DEFAULT_THICKNESS;
+          snake.thickness, snake.thickness);
+      snake.segments.last._box.height -= snake.thickness;
+      snake.segments.last._box.y += snake.thickness;
       snake.segments.add(new LeftSegment(box));
     } else if (snake.segments.last is DownSegment) {
       var pos = snake.segments.last.getNewRightPos();
       ElemBox box = new ElemBox(querySelector('#canvas'), pos.x, pos.y,
-          Snake.DEFAULT_THICKNESS, Snake.DEFAULT_THICKNESS);
-      snake.segments.last._box.height -= Snake.DEFAULT_THICKNESS;
+          snake.thickness, snake.thickness);
+      snake.segments.last._box.height -= snake.thickness;
       snake.segments.add(new LeftSegment(box));
     } else {
       print('Not allowed direction');

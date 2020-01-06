@@ -1,15 +1,15 @@
 part of snakeapp;
 
-class Apple { 
-  static final int DEFAULT_SIDE = 50;
-  static final int DEFAULT_GROWTH = 200;
+class Apple {
+
+  int sideWidth;
   ElemBox box;
   Rectangle rect;
   
-  Apple(){
+  Apple(this.sideWidth) {
     var pos = getRandomPos();
-    rect = new Rectangle(pos.x, pos.y, DEFAULT_SIDE, DEFAULT_SIDE);
-    box = new ElemBox(querySelector('#canvas'), pos.x, pos.y, DEFAULT_SIDE, DEFAULT_SIDE);
+    rect = new Rectangle(pos.x, pos.y, sideWidth, sideWidth);
+    box = new ElemBox(querySelector('#canvas'), pos.x, pos.y, sideWidth, sideWidth);
     box.elem.classes.add('apple');  
   }
   
@@ -19,8 +19,8 @@ class Apple {
   
   Point getRandomPos(){
     Random ran = new Random();
-    var maxX = canvasRect.width.toInt() - DEFAULT_SIDE;
-    var maxY = canvasRect.height.toInt() - DEFAULT_SIDE;
+    var maxX = canvasRect.width.toInt() - sideWidth;
+    var maxY = canvasRect.height.toInt() - sideWidth;
     var x = ran.nextInt(maxX);
     var y = ran.nextInt(maxY);
     return new Point(x, y);

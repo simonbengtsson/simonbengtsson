@@ -40,7 +40,7 @@ void main() {
 }
 
 void spawnApple() {
-  apple = new Apple();
+  apple = new Apple(snake.thickness);
   if (snake.intersects(apple.rect)) {
     apple.remove();
     spawnApple();
@@ -65,7 +65,7 @@ void update(num delta) {
       apple.remove();
       spawnApple();
       score += 100;
-      snake.growLength += Apple.DEFAULT_GROWTH;
+      snake.growLength += 200;
       scoreUpdated(score);
     }
     window.animationFrame.then(update);
@@ -75,7 +75,7 @@ void update(num delta) {
 void restart() {
   querySelector('#canvas').children.clear();
   snake = new Snake();
-  apple = new Apple();
+  apple = new Apple(snake.thickness);
   score = 0;
   window.animationFrame.then(update);
 }
