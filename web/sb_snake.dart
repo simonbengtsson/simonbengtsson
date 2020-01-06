@@ -30,6 +30,8 @@ void main() {
   spawnApple();
   window.animationFrame.then(update);
 
+  updateHighScore(0);
+
   KeyController keyc = new KeyController();
   window.onKeyDown.listen(keyc.keyListener);
 
@@ -52,11 +54,10 @@ unfadeInfoBox() {
 }
 
 void update(num delta) {
-  // Move rect
   Rectangle moveRect = snake.calcMoveRect();
 
-  //Move snake
   if (isGameOver(moveRect)) {
+    updateHighScore(score);
     restart();
     unfadeInfoBox();
   } else {
@@ -66,10 +67,26 @@ void update(num delta) {
       spawnApple();
       score += 100;
       snake.growLength += 200;
-      scoreUpdated(score);
+      updateScore(score);
     }
     window.animationFrame.then(update);
   }
+}
+
+void updateHighScore(score) {
+  int highScore;
+  try {
+    highScore = int.parse(window.localStorage["highscore"] ?? "");
+  } catch(e) {
+    highScore = 0;
+  }
+
+  if (score > highScore) {
+    highScore = score;
+  }
+
+  window.localStorage["highscore"] = "$highScore";
+  querySelector("#highscore").text = "$highScore";
 }
 
 void restart() {
@@ -80,7 +97,7 @@ void restart() {
   window.animationFrame.then(update);
 }
 
-void scoreUpdated(num score) {
+void updateScore(num score) {
   querySelector("#score").text = "$score";
 }
 
