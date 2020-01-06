@@ -38,7 +38,7 @@ class KeyController {
   }
 
   fadeInfoBox() {
-    querySelector("#main").style.opacity = "20%";
+    querySelector("#main").style.opacity = "0";
   }
 
   goDown() {
