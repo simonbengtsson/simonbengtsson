@@ -40,6 +40,8 @@ void main() {
   document.addEventListener('swiped-right', (e) { keyc.goRight(); });
   document.addEventListener('swiped-up', (e) {  keyc.goUp(); });
   document.addEventListener('swiped-down', (e) { keyc.goDown(); });
+
+
 }
 
 void spawnApple() {
@@ -52,6 +54,7 @@ void spawnApple() {
 
 unfadeInfoBox() {
   querySelector("#main").style.opacity = "0.95";
+  querySelectorAll("#main a").style.pointerEvents = "auto";
 }
 
 void update(num delta) {

@@ -39,6 +39,7 @@ class KeyController {
 
   fadeInfoBox() {
     querySelector("#main").style.opacity = "0";
+    querySelectorAll("#main a").style.pointerEvents = "none";
   }
 
   goDown() {
