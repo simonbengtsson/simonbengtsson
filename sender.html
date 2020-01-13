@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sync</title>
+</head>
+<body>
+<script src="./peerjs.js"></script>
+<script>
+  const peer = new Peer();
+  const conn = peer.connect('simongbe-test-connection');
+  conn.on('open', function(){
+    console.log(conn.id);
+    conn.send('hi!');
+  }, (err) => {
+    console.error('Failed to get local stream', err);
+  });
+  console.log('Started...')
+</script>
+</body>
+</html>
